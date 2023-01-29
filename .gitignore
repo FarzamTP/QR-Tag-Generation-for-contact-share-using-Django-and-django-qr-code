@@ -4,7 +4,8 @@ __pycache__/
 *$py.class
 
 db.sqlite3
-config.py
+QR/config.py
+web/migrations
 
 # C extensions
 *.so
