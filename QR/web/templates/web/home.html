@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load qr_code %}
+{% load static %}
+
+{% block head %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    <a href="{% url 'logout' %}">Logout</a>
+    <br>
+    <h2><b>Home</b> {{ request.user.userprofile }}</h2>
+    <h3>Your VCARD is now available!</h3>
+
+    <br>
+
+    <h3>Your Contact Data:</h3>
+    <h4><b>Username</b>: {{ user.username }}</h4>
+    <h4><b>Email</b>: <a target="_blank" href="mailto:{{ user.email }}">{{ user.email }}</a></h4>
+    <h4><b>Mobile</b>: {{ user.userprofile.mobile }}</h4>
+    <h4><b>Organization</b>: {{ user.userprofile.organization }}</h4>
+    <h4><b>Url</b>: <a target="_blank" href="{{ user.userprofile.url }}">{{ user.userprofile.url }}</a></h4>
+
+    <br>
+    {% qr_for_mecard mecard=vcard size='S' %}
+    <br>
+    <h4 style="color: darkblue"><b><i>Scan Me!</i></b></h4>
+{% endblock %}

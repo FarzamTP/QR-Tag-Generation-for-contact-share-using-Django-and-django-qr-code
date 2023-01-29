@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load qr_code %}
+{% load static %}
+
+{% block head %}
+    <title>{{ user.userprofile }}</title>
+{% endblock %}
+
+{% block body %}
+    {% qr_for_mecard mecard=vcard size='S' %}
+{% endblock %}
+
